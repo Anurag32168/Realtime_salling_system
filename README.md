@@ -1,50 +1,16 @@
-import express from "express"
-const app=express();
-import cors from "cors"
-import mysql from "mysql"
-
-app.use(express.json());
-app.use(cors());
-const db=mysql.createConnection({
-  host:"localhost",
-  user:"root",
-  password:"a1s1t1i1k1",
-  database:"test"
-})
-//ALTER user 'root'@'localhost' identified with mysql_native_password by 'a1s1t1i1k1';
-//ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'a1s1t1i1k1';
+Real-time Book Management App (MERN Stack)
+This is a Full-Stack Book Management Application built using React, Node.js, Express, and MySQL. It allows users to view, add, and later update books with details like title, description, and cover image.
 
 
-app.get("/",(req,res)=>{
-  console.log("backend is also open and in running condition")
-  res.send("backend is also open and in running condition")
-})
-app.get("/books",(req,res)=>{
-  let q="SELECT * from books";
-  db.query(q,(err,data)=>{
-    if(err)  return res.json(err);
-    return res.json(data);
-  })
-})
-//app.use(express.json());
-app.post("/books",(req,res)=>{
-  const q="INSERT INTO books(`title`,`desc`,`cover`) VALUES (?)"
-  const values=[
-    req.body.title,
-    req.body.desc,
-    req.body.cover
-  ]
+Tech Stack
+Frontend: React (with React Router, Axios)
+Backend: Node.js, Express
+Database: MySQL
 
 
-
-  db.query(q,[values],(err,data)=>{
-    if (err)
-      return res.json(err);
-      return res.json("Book has been created successfully");
-  });
-});
-app.listen(8800,()=>{
-  console.log("server is running on port 8800")
-  console.log("connected to backend")
-})
-# Realtime_salling_system
+Features
+View all books fetched from the MySQL database
+Add new books (title, description, cover)
+(Update and Delete coming soon)
+Real-time connection between frontend and backend
+CORS enabled for frontend-backend communication
