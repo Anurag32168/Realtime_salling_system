@@ -13,4 +13,4 @@ View all books fetched from the MySQL database
 Add new books (title, description, cover)
 (Update and Delete coming soon)
 Real-time connection between frontend and backend
-CORS enabled for frontend-backend communication
+CORS enabled for frontend-backend communication 
