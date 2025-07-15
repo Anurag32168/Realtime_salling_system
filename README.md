@@ -7,7 +7,7 @@ Frontend: React (with React Router, Axios)
 Backend: Node.js, Express
 Database: MySQL
 
-
+ 
 Features
 View all books fetched from the MySQL database
 Add new books (title, description, cover)
